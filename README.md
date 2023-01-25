@@ -3,13 +3,13 @@
 Clone this repository:
 
 ```
-git clone <>
+git clone https://github.com/michaellanuk/typescript-graphql.git
 ```
 
 Install npm dependencies:
 
 ```
-cd <>
+cd typescript-graphql
 npm install
 ```
 
