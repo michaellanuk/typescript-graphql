@@ -1,0 +1,11 @@
+{
+  "name": "ts-node-graphql-prisma",
+  "version": "1.0.0",
+  "description": "Boilerplate for GraphQL API writtein with Node.js and TypeScript",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Lan",
+  "license": "ISC"
+}
