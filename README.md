@@ -34,3 +34,39 @@ npm run dev
 
 Navigate to [http://localhost:4000](http://localhost:4000) to explore the API in a [GraphQL Playground](https://github.com/prisma/graphql-playground).
 
+Example requests:
+
+```
+query {
+  authors {
+    id
+    name
+    email
+    citedBy
+    articles {
+      title
+      publicationYear
+      citedBy
+    }
+  }
+}
+```
+
+```
+mutation {
+  createArticle(
+    title: "Example Article Title",
+    publicationYear: "2022",
+    authorIds: [1, 2]
+  ) {
+    id
+    title
+    publicationYear
+    authors {
+      id
+      name
+    }
+  }
+}
+```
+
