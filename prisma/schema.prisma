@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = "postgresql://michaellan@localhost/ts-node-graphql-prisma"
+}
+
+model Article {
+  id                Int         @id @default(autoincrement())
+  title             String
+  authors           Author[]
+  publicationYear   String
+  citedBy           Int?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+}
+
+model Author {
+  id        Int         @id @default(autoincrement())
+  name      String
+  email     String?
+  articles  Article[]
+  citedBy   Int?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
