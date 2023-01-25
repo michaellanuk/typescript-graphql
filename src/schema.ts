@@ -63,15 +63,6 @@ export const resolvers = {
         },
 
         cite: async (_parent, args: { id: number }, context: Context) => {
-            const updatedArticle = await context.prisma.article.update({
-                where: { id: args.id || undefined },
-                data: {
-                    citedBy: {
-                        increment: 1,
-                    },
-                },
-            });
-
             const authors = await context.prisma.article
                 .findUnique({
                     where: { id: args.id || undefined },
@@ -92,7 +83,14 @@ export const resolvers = {
                 )
             );
 
-            return updatedArticle;
+            return context.prisma.article.update({
+                where: { id: args.id || undefined },
+                data: {
+                    citedBy: {
+                        increment: 1,
+                    },
+                },
+            });
         },
 
     },
